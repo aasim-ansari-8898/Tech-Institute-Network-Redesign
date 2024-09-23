@@ -1,0 +1,7 @@
+# Introduction
+
+This project addresses critical network performance issues, including slow logins, downloads, and response times from network services such as database queries, printing, and internet browsing. To enhance accessibility and functionality, all campuses will be made WiFi-friendly, allowing users to access the network from any location. Additionally, printing will be enabled from any station to any printer across all campuses, with WiFi access appropriately grouped into "management & staff," "students," and "guests."
+
+A plan will be developed for the implementation of Voice over IP (VoIP) phone sets for desktops, including recommendations for suitable vendors. The project includes a budget of CAD 38,000 per academic year for ISP services at Campus C.
+
+Network infrastructure improvements will encompass the implementation of core, distribution, and access layers, with consideration for a 20% annual growth rate. Fault tolerance measures, an internet firewall, and a robust uninterruptible power supply (UPS) will be put in place to ensure network reliability and security. Additionally, secure remote login connections will be provided for 400 mobile staff members. The project will estimate the number of WiFi Access Points required for each campus (A, B, C, and D) and submit a logical design schema/diagram for WiFi Access Points and Wireless LAN Controllers for each campus.
