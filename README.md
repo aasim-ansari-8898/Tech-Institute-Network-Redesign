@@ -31,3 +31,19 @@ The Tech Institute faces significant challenges with its outdated and poorly pla
 1. Clone the repository:
    ```bash
    git clone https://github.com/aasim-ansari-8898/Tech-Institute-Network-Redesign.git
+2. Navigate to the project directory:
+   ```bash
+   cd repo-name
+3. Follow the implementation plan outlined in the documentation for setup.   
+
+### Usage
+Refer to the design document for specific instructions on the network configuration and deployment.
+
+### Contributors
+Mohammed Aasim Ansari
+
+Mark Medenilla
+
+Ma Christine Atup
+
+Anish Patra
