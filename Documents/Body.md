@@ -58,8 +58,7 @@ The WLAN configuration is as follows:
 |             | B        | 6500  | 192.168.64.0     | /18       |
 
 ## C. Network Diagrams
-- **Phase 1 Diagram**: ![Phase 1 Diagram](../Diagrams/Network_Diagram_Phase1.png)
-- **Phase 2 Diagram**: ![Phase 2 Diagram](../Diagrams/Network_Diagram_Phase2.png)
+- **Phase 1 & 2 Diagram**: ![Phase Diagram](../Diagrams/Network_Diagram_Phase.png)
 
 ## D. Design Document
 ### Hardware and Software at Each Stage of Migration
