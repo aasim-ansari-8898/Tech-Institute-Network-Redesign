@@ -1,118 +1,141 @@
 # Body
 
-## A. IP Addressing Scheme
-This section details the IP addressing scheme used throughout the network design, focusing on subnetting, addressing allocations, and VLAN configurations.
+## A. Introduction
+This project addresses critical network performance issues, including slow logins, downloads, and response times from network services such as database queries, printing, and internet browsing. To enhance accessibility and functionality, all campuses will be made WiFi-friendly, allowing users to access the network from any location. Additionally, printing will be enabled from any station to any printer across all campuses, with WiFi access appropriately grouped into "management & staff," "students," and "guests."
 
-### Overview
-The IP addressing scheme is structured to facilitate efficient routing, security, and management. Each subnet is tailored for specific departments or functions, enhancing performance and isolation.
+A plan will be developed for the implementation of Voice over IP (VoIP) phone sets for desktops, including recommendations for suitable vendors. The project includes a budget of CAD 38,000 per academic year for ISP services at Campus C. 
 
-- **Subnet A (Engineering)**: 192.168.1.0/24
-  - Subnet Mask: 255.255.255.0
-  - Gateway: 192.168.1.1
-  - Usable Hosts: 192.168.1.2 to 192.168.1.254
+Network infrastructure improvements will encompass the implementation of core, distribution, and access layers, with consideration for a 20% annual growth rate. Fault tolerance measures, an internet firewall, and a robust uninterruptible power supply (UPS) will be put in place to ensure network reliability and security. Additionally, secure remote login connections will be provided for 400 mobile staff members.
 
-- **Subnet B (Marketing)**: 192.168.2.0/24
-  - Subnet Mask: 255.255.255.0
-  - Gateway: 192.168.2.1
-  - Usable Hosts: 192.168.2.2 to 192.168.2.254
+The project will estimate the number of WiFi Access Points required for each campus (A, B, C, and D) and submit a logical design schema/diagram for WiFi Access Points and Wireless LAN Controllers for each campus.
 
-- **VLANs**: 
-  - VLAN 10: Engineering
-  - VLAN 20: Marketing
+## B. Body
+The project, spanning over two years, aims to replace the existing hubs with access switches. In the initial phase, priority will be given to Building B and Building C, with a distribution switch and firewall being added. The second phase will focus on Building A and Building D and include the deployment of a redundant distribution switch and firewall, along with the implementation of WiFi.
 
-### Justification
-The design maximizes address space while minimizing broadcast traffic. The chosen subnets allow for future expansion and facilitate easier management.
+Existing servers will be used to provide essential services like DHCP, DNS, Authentication, WLC, CUPS server, and Zabbix. This phased approach ensures that critical infrastructure upgrades are completed first, followed by enhancements to network redundancy and wireless capabilities.
 
-## B. Network Diagram
-This section provides a summary of the network topology, highlighting the interconnections between various devices.
+### IP Addressing Scheme
+The following table outlines the IP addressing scheme for the campuses:
 
-### Overview
-The network diagram serves as a visual representation of the architecture and includes the following key components:
+| CAMPUS ROOMS | LAN IP add   | MASK       | Vlan |
+|--------------|--------------|------------|------|
+| A 1          | 172.16.10.0  | /26        | 10   |
+| A 2          | 172.16.10.64 | /26        | 11   |
+| A 3          | 172.16.10.128| /26        | 12   |
+| A 4          | 172.16.10.192| /26        | 13   |
+| A 5*         | 172.16.11.0  | /26        | 14   |
+| A 6*         | 172.16.11.64 | /26        | 15   |
+| B 1          | 172.16.11.128| /26        | 16   |
+| B 2          | 172.16.11.192| /26        | 17   |
+| B 3          | 172.16.12.0  | /26        | 18   |
+| B 4          | 172.16.12.64 | /26        | 19   |
+| C 1          | 172.16.12.128| /26        | 20   |
+| C 2          | 172.16.12.192| /26        | 21   |
+| C 3          | 172.16.13.0  | /26        | 22   |
+| C 4          | 172.16.13.64 | /26        | 23   |
+| C 5          | 172.16.13.128| /26        | 24   |
+| C 6          | 172.16.13.192| /26        | 25   |
+| C 7          | 172.16.14.0  | /26        | 26   |
+| D 1          | 172.16.14.64 | /26        | 27   |
+| D 2          | 172.16.14.128| /26        | 28   |
+| D 3          | 172.16.14.192| /26        | 29   |
+| D 4          | 172.16.15.0  | /26        | 30   |
+| D 5          | 172.16.15.64 | /26        | 31   |
+| C 14 - Servers| 172.16.86.0 | /25        | 86   |
 
-- **Router**: Acts as the main gateway to the external internet.
-- **Switches**: Layer 2 switches enabling VLAN segmentation.
-- **Access Points**: Provide wireless coverage across the premises.
+### WLAN Configuration
+The WLAN configuration is as follows:
 
-### Diagrams
-- ![Network Diagram Phase 1](../Diagrams/Network_Diagram_Phase1.png)
-- ![Network Diagram Phase 2](../Diagrams/Network_Diagram_Phase2.png)
+| WLAN        | Building | Users | LAN IP add       | Mask      |
+|-------------|----------|-------|------------------|-----------|
+| Students    | A        | 500   | 192.168.128.0    | /22       |
+|             | B        | 6500  | 192.168.0.0      | /18       |
+|             | C        | 350   | 192.168.136.0    | /23       |
+|             | D        | 100   | 192.168.140.0    | /24       |
+| Management  | A        | 120   | 192.168.141.0    | /24       |
+|             | B        | 120   | 192.168.142.0    | /24       |
+| Guest       | A        | 500   | 192.168.132.0    | /22       |
+|             | B        | 6500  | 192.168.64.0     | /18       |
 
-### Justification
-This layout provides redundancy and optimal traffic management, enhancing overall network performance and reliability.
+## C. Network Diagrams
+- **Phase 1 Diagram**: ![Phase 1 Diagram](../Diagrams/Network_Diagram_Phase1.png)
+- **Phase 2 Diagram**: ![Phase 2 Diagram](../Diagrams/Network_Diagram_Phase2.png)
 
-## C. Design Document
-The design document outlines the specifications, equipment, and considerations guiding the network architecture.
+## D. Design Document
+### Hardware and Software at Each Stage of Migration
 
-### Overview
-The document covers hardware choices, software tools, and security measures:
+#### Phase 1: Year 1
+1. **Access Switches**
+   - **Hardware**: EnGenius ECS1552P
+   - **Purpose**: Replace outdated 3COM HUBs with advanced switches that can support PoE devices like IP phones and Wi-Fi access points.
 
-### Hardware Specifications
-- **Routers**: Cisco ISR 4000 Series for robust routing capabilities.
-- **Switches**: Cisco Catalyst 9000 Series to support high-speed LAN connectivity.
-- **Servers**: Dell PowerEdge R740, selected for their processing power and reliability.
+2. **Server NIC Cards**
+   - **Hardware**: StarTech I225-V
+   - **Purpose**: Upgrade server NICs to handle increased data transfer speeds.
 
-### Software and Management Tools
-- **Network Management**: SolarWinds for comprehensive monitoring and management.
-- **Security**: Cisco ASA Firewall to enforce security policies at the network perimeter.
+3. **Distribution Switch**
+   - **Hardware**: Edge-Core AS5835-54X
+   - **Purpose**: Serve as a high-capacity distribution point for aggregating traffic from access switches.
 
-### Security Considerations
-- Implementation of Access Control Lists (ACLs) to control traffic.
-- Regular security audits to identify vulnerabilities.
+4. **Router/Firewall**
+   - **Hardware**: Palo Alto Networks PA-1410
+   - **Purpose**: Enhance security by protecting the network edge.
 
-### Summary
-The design is focused on creating a reliable, secure, and scalable network infrastructure that meets current organizational needs while allowing for future enhancements.
+5. **SFP Transceivers**
+   - **Hardware**: TP-Link TL-SM5110-SR
+   - **Purpose**: Enable high-speed fiber connections.
 
-## D. Cost Summaries
-This section provides a detailed overview of the costs associated with the network implementation.
+#### Phase 2: Year 2
+1. **Additional Access Switches**
+   - **Hardware**: EnGenius ECS1552P
+   - **Purpose**: Replace outdated components in Campuses A and D.
 
-### Cost Summary Phase 1
-- **Hardware Costs**:
-  - Routers: $X,XXX
-  - Switches: $X,XXX
-  - Access Points: $X,XXX
-  - Servers: $X,XXX
-- **Software Costs**:
-  - Network Management Software: $X,XXX
-  - Security Software: $X,XXX
-- **Labor Costs**:
-  - Installation and Configuration: $X,XXX
-  - Testing and Validation: $X,XXX
+2. **Redundant Distribution Switch**
+   - **Hardware**: Edge-Core AS5835-54X
+   - **Purpose**: Provide redundancy in the distribution layer.
 
-**Total Phase 1 Cost**: $X,XXX
+3. **Uninterruptible Power Supply (UPS)**
+   - **Hardware**: Eaton 5P 1000VA
+   - **Purpose**: Protect critical network equipment from power outages.
 
-### Cost Summary Phase 2
-- **Additional Hardware**:
-  - Network Expansion Devices: $X,XXX
-- **Additional Software**:
-  - Licensing Fees: $X,XXX
-- **Labor Costs**:
-  - Training and Support: $X,XXX
+4. **Wireless Access Points**
+   - **Hardware**: EnGenius Fit6 2x2 Lite
+   - **Purpose**: Provide Wi-Fi coverage across all campuses.
 
-**Total Phase 2 Cost**: $X,XXX
+5. **Router**
+   - **Hardware**: Palo Alto Networks PA-1410
+   - **Purpose**: Support expanded remote access capabilities.
 
-### Total Cost Summary
-- **Total Estimated Cost for Project**: $XX,XXX
-  - Phase 1 Total: $X,XXX
-  - Phase 2 Total: $X,XXX
+## E. Cost Summaries
+The project will be executed in two phases, each with a defined budget of CAD 38,000.
 
-## E. Project Implementation Plan
-This section outlines the strategy for deploying the network infrastructure.
+### Phase 1 Cost Summary
+| Component                  | Brand                | Model              | Feature                      | Count | Total Cost (CAD) |
+|---------------------------|----------------------|--------------------|------------------------------|-------|-------------------|
+| Access Switches           | EnGenius             | ECS1552P           | L2, 4 x SFP+, 48 x POE      | 25    | $17,549.75        |
+| Distribution Switch       | Edge-Core            | AS5835-54X         | L3, 48 x SFP+               | 1     | $8,211.99         |
+| SFP Transceivers          | TP-Link              | TL-SM5110-SR       | 10GBase-LR SFP+ LC          | 112   | $4,030.88         |
+| Server NIC Cards          | StarTech.com         | I225-V             | 2.5/1Gbps                   | 12    | $875.88           |
+| Router                    | Palo Alto Networks    | PA-1410            | Firewall throughput: 6.8 Gbps| 1     | $6,171.99         |
 
-### Overview
-The implementation plan provides a step-by-step approach to deploying the network, ensuring minimal disruption to ongoing operations.
+**Total Phase 1 Cost**: $37,662.72  
+**Budget**: CAD 38,000  
+**Savings**: CAD 149.52  
 
-### Phases
-1. **Phase 1: Preparation**
-   - Inventory existing hardware and software.
-   - Assess current network performance and identify bottlenecks.
+### Phase 2 Cost Summary
+| Component                  | Brand                | Model              | Feature                      | Count | Total Cost (CAD) |
+|---------------------------|----------------------|--------------------|------------------------------|-------|-------------------|
+| Access Switches           | EnGenius             | ECS1552P           | L2, 4 x SFP+, 48 x POE      | 25    | $17,549.75        |
+| Distribution Switch       | Edge-Core            | AS5835-54X         | L3, 48 x SFP+               | 1     | $8,211.99         |
+| Wireless Access Points     | EnGenius             | Fit6 2x2 Lite      | 802.11ac Wave 2, 2x2 MIMO   | 30    | $9,116.64         |
+| Uninterruptible Power Supply (UPS) | Eaton       | 5P 1000VA          | 1000VA, USB, LCD            | 2     | $859.20           |
+| Router                    | Palo Alto Networks    | PA-1410            | Firewall throughput: 6.8 Gbps| 1     | $6,171.99         |
 
-2. **Phase 2: Deployment**
-   - Install and configure hardware components.
-   - Set up VLANs and IP addressing as per the design document.
+**Total Phase 2 Cost**: $41,609.57  
+**Budget**: CAD 38,000  
+**Savings**: CAD 3,609.57  
 
-3. **Phase 3: Testing and Validation**
-   - Conduct thorough testing of all components.
-   - Validate connectivity, performance, and security measures.
-
-### Summary
-The implementation plan aims to ensure a smooth transition to the new network infrastructure, minimizing risks and maximizing efficiency.
+### Overall Summary
+**Total Project Cost**: $79,272.29  
+**Total Budget**: CAD 76,000  
+**Total Savings**: CAD 3,272.29  
