@@ -2,7 +2,7 @@
 
 1. [Introduction](Introduction.md)
 2. [Body](Body.md)
-   - A. [IP Addressing Scheme](Body.md#ip-addressing-scheme)
+   - A. [IP Addressing Scheme](Body.md#IP Addressing Scheme)
    - B. [Network Diagram](Body.md#network-diagram)
    - C. [Design Document](Body.md#design-document)
    - D. [Cost Summaries](Body.md#cost-summaries)
