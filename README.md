@@ -40,10 +40,7 @@ The Tech Institute faces significant challenges with its outdated and poorly pla
 Refer to the design document for specific instructions on the network configuration and deployment.
 
 ### Contributors
-Mohammed Aasim Ansari
-
-Mark Medenilla
-
-Ma Christine Atup
-
-Anish Patra
+- Mohammed Aasim Ansari
+- Mark Medenilla
+- Ma Christine Atup
+- Anish Patra
