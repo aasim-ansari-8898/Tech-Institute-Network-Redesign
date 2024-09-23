@@ -128,3 +128,35 @@ The project will be executed in two phases, each with a defined budget of CAD 38
 **Total Project Cost**: $79,272.29  
 **Total Budget**: CAD 76,000  
 **Total Savings**: CAD 3,272.29  
+
+## E. Project Implementation Plan
+The implementation plan will be executed in two phases over two academic years to address the Tech Institute's critical network performance issues stemming from outdated IT infrastructure.
+
+### Phase One: Year 1
+**Timeline:** September 2024 - October 2024
+**Tasks:**
+   - **Planning and Procurement** (Weeks 1-2)
+      - Finalize hardware requirements and configurations.
+      - Place orders for equipment and confirm delivery dates.
+   - **NIC Card Upgrade** (Week 3)
+      - Upgrade server NIC cards to StarTech I225-V.
+   - **Access Switch Replacement** (Week 4)
+      - Replace existing switches in Campuses B and C.
+   - **Distribution Switch Installation** (Week 6)
+      - Install and configure Edge-Core AS5835-54X distribution switch.
+   - **Final Review and Optimization** (Week 7)
+      - Conduct a thorough network review and optimization.
+
+### Phase Two: Year 2
+**Timeline:** September 2025 - October 2025
+**Tasks:**
+   - **Planning and Procurement** (Weeks 1-2)
+      - Finalize hardware requirements and configurations for additional switches.
+   - **Access Switch Installation** (Week 3)
+      - Replace current switches in Campuses A and D.
+   - **Distribution Switch and UPS Installation** (Week 4)
+      - Install redundant distribution switch and UPS systems.
+   - **Router and Access Point Installation** (Week 5)
+      - Install and configure routers and access points across all campuses.
+   - **Final Review and Optimization Phase** (Week 6)
+      - Conduct a comprehensive network review and implement necessary updates.
