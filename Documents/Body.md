@@ -4,7 +4,7 @@ The project, spanning over two years, aims to replace the existing hubs with acc
 
 Existing servers will be used to provide essential services like DHCP, DNS, Authentication, WLC, CUPS server, and Zabbix. This phased approach ensures that critical infrastructure upgrades are completed first, followed by enhancements to network redundancy and wireless capabilities.
 
-### IP Addressing Scheme
+## A. IP Addressing Scheme
 The following table outlines the IP addressing scheme for the campuses:
 
 | CAMPUS ROOMS | LAN IP add   | MASK       | Vlan |
@@ -47,10 +47,10 @@ The WLAN configuration is as follows:
 | Guest       | A        | 500   | 192.168.132.0    | /22       |
 |             | B        | 6500  | 192.168.64.0     | /18       |
 
-## C. Network Diagrams
+## B. Network Diagrams
 - **Phase 1 & 2 Diagram**: ![Phase Diagram](../Diagrams/Network_Diagram_Phase.png)
 
-## D. Design Document
+## C. Design Document
 ### Hardware and Software at Each Stage of Migration
 
 #### Phase 1: Year 1
@@ -95,7 +95,7 @@ The WLAN configuration is as follows:
    - **Hardware**: Palo Alto Networks PA-1410
    - **Purpose**: Support expanded remote access capabilities.
 
-## E. Cost Summaries
+## D. Cost Summaries
 The project will be executed in two phases, each with a defined budget of CAD 38,000.
 
 ### Phase 1 Cost Summary
